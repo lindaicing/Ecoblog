@@ -1,0 +1,79 @@
+/* Setting up the Article ***********************************************/
+
+#articleTagSection, #articleDetails {
+    margin: 0 30px 30px 30px;
+}
+
+#articleDetails .articleLabels {
+    margin: 0 0 8px 0;
+}
+
+#articleTagSection {
+    display: flex;
+    align-items: center;
+}
+
+#articleContent {
+    display: flex;
+    flex-direction: column;
+    margin: 0 30px;
+}
+
+.articleTag {
+    margin-right: 12px;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #55828Baa;
+    cursor: pointer;
+}
+
+#visitWebsite {
+    margin: 30px auto 0 0;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #87bba288;
+    cursor: pointer;
+}
+
+/* Comments ***********************************************/
+
+#commentSection {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 60px 30px 0 30px;
+}
+
+#commentBody {
+    display: flex;
+    max-width: 100%;
+    margin: 8px 0 16px 0;
+    /* background: green; */
+}
+
+#commentSection img {
+    width: 50px;
+    margin: 6px 12px auto 0;
+    border-radius: 8px;
+}
+
+/* Typography ***********************************************/
+
+.articleLabels {
+    display: inline-block;
+    margin: 16px 0;
+    font-weight: 700;
+    color: #fffbea;
+}
+
+#tagLabel {
+    margin-right: 12px;
+}
+
+#commentAuthor {
+    font-weight: 700;
+}
