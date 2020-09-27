@@ -1,0 +1,2 @@
+# Ecoblog
+Django Blogging App
