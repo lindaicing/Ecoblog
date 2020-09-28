@@ -47,6 +47,7 @@
 
                 <p><span class="articleLabels">Wikipedia says:</span></p>
                 <p id="articleText">{{ article.wiki_excerpt|linebreaks }}</p>
+                <p>{{ article.get_headline }}</p>
                 <a id="visitWebsite" href="{{ article.website }}" target="_blank">Visit Website</a>
             </div>
             <div id="commentSection">
@@ -61,19 +62,13 @@
                     </span>
                 </div>
                 {% endfor %}
-                
-                <!-- <div id="commentBody">
-                    <img src="https://thispersondoesnotexist.com/image" alt="Profile Picture">
-                    <p id="commentAuthor">{{ article.comments.author }}</p>
-                    <p id="commentTime">{{ article.comments.date_time }}</p>
-                    <p id="commentContents">{{ article.comments.content }}</p>
-                </div> -->
             </div>
             <footer>
                 <p>© Ecoblog 2020</p>
             </footer>
         </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static './script.js' %}"></script>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="{% static './script.js' %}"></script> -->
 </html>

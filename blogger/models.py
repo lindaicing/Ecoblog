@@ -38,11 +38,14 @@ class Post(models.Model): #import stuff from models.Model
         super(Post, self).save(*args, **kwargs)
 
     # @property
-    # def get_headline(self):
-    #     hl = wikipedia.summary(self.headline, sentences=1)
-    #     return hl
-
-    # wiki_excerpt = get_headline()
+    def get_headline(self):
+        try:
+            hl = wikipedia.summary(self.headline, sentences=1)
+        except wikipedia.exceptions.DisambiguationError as e:
+            hl = "Wikipedia has a Disambiguation Error. Try another article!"
+        except wikipedia.exceptions.PageError as e:
+            hl = "No page associated with this topic. Try another article!"
+        return hl
         
 
 class Comment(models.Model):
