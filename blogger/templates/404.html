@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ecoblog Homepage</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
         <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -30,11 +31,11 @@
             <div id="articleGrid">
                 <p>You may want to double check your URL.<br>Click <a href="{% url 'home' %}">here</a> to return to the homepage.</p>
             </div>
-    
-            <footer>
-                <p>© Ecoblog 2020</p>
-            </footer>
         </div>
+
+        <footer>
+            <p>© Ecoblog 2020</p>
+        </footer>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static './confetti.js' %}"></script>

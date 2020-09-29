@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ecoblog Homepage</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
         <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style-articles.css' %}">
@@ -29,45 +30,51 @@
         </header>
 
         <div id="pagecontents">
-            <div id="articleTagSection">
-                <span id="tagLabel">Tags: </span>
-                <span class="articleTag">{{ article.get_tags_display }}</span>
-                <!-- {% for tag in article.tags %}
-                    <span class="articleTag">environment</span>
-                {% endfor %} -->
-            </div>
-
-            <div id="articleDetails">
-                <p><span class="articleLabels">Author:</span> {{ request.user.first_name }} {{ request.user.last_name }}</p>
-                <p><span class="articleLabels">Posted:</span> {{ article.pub_date_time.month }}/{{ article.pub_date_time.day }}/{{ article.pub_date_time.year }} at {{ article.pub_date_time.time }}</p>
-            </div>
-
-            <div id="articleContent">
-                <p><span class="articleLabels">Read all about it:</span></p>
-                <p id="articleText">{{ article.text|linebreaks }}</p>
-
-                <p><span class="articleLabels">Wikipedia says:</span></p>
-                <p id="articleText">{{ article.wiki_excerpt|linebreaks }}</p>
-                <p>{{ article.get_headline }}</p>
-                <a id="visitWebsite" href="{{ article.website }}" target="_blank">Visit Website</a>
-            </div>
-            <div id="commentSection">
-                <p><span class="articleLabels">Comments:</span></p>
-                {% for comment in article.comment_set.all %}
-                <div id="commentBody">
-                    <img src="https://thispersondoesnotexist.com/image" alt="Profile Picture">
-                    <span>
-                        <p id="commentAuthor">{{ comment.author }}</p>
-                        <p id="commentTime">{{ comment.date_time }}</p>
-                        <p id="commentContents">{{ comment.content }}</p>
-                    </span>
+            <div id="beforeComments">
+                <div id="articleTagSection">
+                    <span id="tagLabel">Tags: </span>
+                    <span class="articleTag">{{ article.get_tags_display }}</span>
+                    <!-- {% for tag in article.tags %}
+                        <span class="articleTag">environment</span>
+                    {% endfor %} -->
                 </div>
-                {% endfor %}
+    
+                <div id="articleDetails">
+                    <p><span class="articleLabels">Author:</span> {{ request.user.first_name }} {{ request.user.last_name }}</p>
+                    <p><span class="articleLabels">Posted:</span> {{ article.pub_date_time.month }}/{{ article.pub_date_time.day }}/{{ article.pub_date_time.year }} at {{ article.pub_date_time.time }}</p>
+                </div>
+    
+                <div id="articleContent">
+                    <p><span class="articleLabels">Read all about it:</span></p>
+                    <p id="articleText">{{ article.text|linebreaks }}</p>
+    
+                    <p><span class="articleLabels">Wikipedia says:</span></p>
+                    <p id="articleText">{{ article.wiki_excerpt|linebreaks }}</p>
+                    <p>{{ article.get_headline }}</p>
+                    <a id="visitWebsite" href="{{ article.website }}" target="_blank">Visit Website</a>
+                </div>
+
+                <div id="commentSection">
+                    <p><span class="articleLabels">Comments:</span></p>
+                    {% for comment in article.comment_set.all %}
+                    <div id="commentBody">
+                        <img src="https://thispersondoesnotexist.com/image" alt="Profile Picture">
+                        <span>
+                            <p id="commentAuthor">{{ comment.author }}</p>
+                            <p id="commentTime">{{ comment.date_time }}</p>
+                            <p id="commentContents">{{ comment.content }}</p>
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div> 
             </div>
-            <footer>
-                <p>© Ecoblog 2020</p>
-            </footer>
+
+            {% include "./aside.html" %} 
         </div>
+
+        <footer>
+            <p>© Ecoblog 2020</p>
+        </footer>
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static './confetti.js' %}"></script>

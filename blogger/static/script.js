@@ -9,4 +9,17 @@ $( document ).ready(function() {
     $("#confetti").click(function(){
         confetti.start(1000, 100);
     })
+
+    sidebarChange();
+    $(window).resize(function() {
+        sidebarChange();
+    })
+    
+    function sidebarChange(){
+        if ($(window).width() > 768) {
+            $("#sidebar, #beforeComments").removeClass("hiddenSidebar");
+        } else {
+            $("#sidebar, #beforeComments").addClass("hiddenSidebar");
+        }
+    }
 });

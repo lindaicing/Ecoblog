@@ -46,7 +46,14 @@ nav a {
     margin-right: -4px;
     cursor: pointer;
     z-index: 1;
-    opacity: 1;
+}
+
+#confetti:hover {
+    opacity: 0.5;
+}
+
+nav::selection, nav a::selection, #confetti::selection {
+    background: none;
 }
 
 #pageTitle {
@@ -60,6 +67,8 @@ nav a {
 #pagecontents {
     max-width: 960px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #articleGrid {
@@ -101,6 +110,13 @@ h3 {
     color: #fffbea;
 }
 
+h4 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #C9E4CAcc;
+}
+
 a, i {
     text-decoration: none;
     color: #fffbea;
@@ -137,17 +153,27 @@ p {
     left:0;
     bottom: 60px;
     background:linear-gradient(transparent 24%, #3D4D58);
-    /* background: green; */
 }
 
 #readmore {
     position: absolute;
     display: block;
+    right: 30px;
     bottom: 30px;
     padding: 8px;
     border-radius: 4px;
     font-size: 14px;
     background: #55828Baa;
+}
+
+::selection {
+    background: #364958;
+    color: #FAC9B8;
+}
+
+header p::selection, header h1::selection {
+    background: #87BBA250;
+    color: #FFFBEA;
 }
 
 /* Queries ***********************************************/
