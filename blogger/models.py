@@ -47,6 +47,7 @@ class Post(models.Model): #import stuff from models.Model
             hl = "No page associated with this topic. Try another article!"
         return hl
         
+        
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1, null=True, blank=True)

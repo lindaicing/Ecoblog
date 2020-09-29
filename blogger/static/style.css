@@ -71,6 +71,10 @@ nav::selection, nav a::selection, #confetti::selection {
     flex-direction: column;
 }
 
+#bodycontent {
+    margin: 0 30px;
+}
+
 #articleGrid {
     display: flex;
     flex-wrap: wrap;
@@ -129,6 +133,11 @@ a:hover, a h3:hover {
 p {
     font-size: 14px;
     line-height: 1.5em;
+}
+
+#errorpage #pagecontents {
+    text-align: center;
+    background: pink;
 }
 
 #author, #datetime {
