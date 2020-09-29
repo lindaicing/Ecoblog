@@ -32,10 +32,18 @@ header {
 
 
 nav {
-    position: absolute;
-    top: 30px;
-    right: 30px;
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    padding: 16px;
+    background: #1f2c300f;
     z-index: 1;
+}
+
+nav:hover {
+    background: #1f2c36cc;
+    padding: 16px;
+    border-radius: 8px;
 }
 
 nav a {
