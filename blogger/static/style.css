@@ -42,6 +42,13 @@ nav a {
     margin-left: 14px;
 }
 
+#confetti {
+    margin-right: -4px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 1;
+}
+
 #pageTitle {
     position: relative;
     display: block;
