@@ -1,13 +1,16 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
         {% load static %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ecoblog Contact</title>
+        <title>Ecoblog Forms</title>
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
         <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style-contact.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7d54d2caeb.js" crossorigin="anonymous"></script>
     </head>
@@ -15,24 +18,78 @@
     <body id="page top">
         <nav>
             <span id="confetti">🎉</span>
-            <a href="#top" id="navcontact"><i class="fas fa-question"></i></a>
+            <a href="{% url 'formtest' %}" id="navformtest"><i class="fas fa-question"></i></a>
             <a href="/admin" id="navadmin" target="_blank"><i class="fas fa-user"></i></a>
             <a href="{% url 'home' %}" id="navhome"><i class="fas fa-home"></i></a>
         </nav>
         
         <header>
-            <img id="herobanner" src="https://images.unsplash.com/photo-1575908524891-b0bdd2b99f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80" alt="headerImg">
+            <img id="herobanner" src="https://images.unsplash.com/photo-1584858754606-fe8ef1afd14e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="headerImg">
             <span id="pageTitle">
                 <h1>Contact Us</h1>
-                <p>Leave us a message and we'll get back to you ASAP!</p>
+                <p>Any questions, comments, concerns, or recommendations?</p>
             </span>
         </header>
 
+
+
+
+
+
+
+
+
         <div id="pagecontents">
             <div id="bodycontent">
-                <p>The form will go here 👀</p>
+                <form action="/thanks" method="post">
+                    <h3>Send us a message!</h3>
+                    <p>
+                        <label for="id_name">Name</label>
+                        <input name="name" id="id_name" placeholder="Dana Scully" required>
+                    </p>
+                    <p>
+                        <label for="id_email">Email</label>
+                        <input type="email" name="email" id="id_email" placeholder="xfiles@fbi.com" required>
+                    </p>
+                    <p>
+                        <label for="id_subject">Subject</label>
+                        <input name="subject" id="id_subject" placeholder="Subject" required>
+                    </p>
+                    <p id="formMessageSection">
+                        <label for="id_message">Message</label>
+                        <textarea name="email" id="id_message" placeholder="I'd like to send a message about..." required></textarea>
+                    </p>
+                    <p id="fileRadio">
+                        <span>Do you want to add a supporting file?</span>
+                        <span>
+                            <label for="id_yesfile">Yes</label>
+                            <input type="radio" name="hasfile" id="id_yesfile" value="Yes">
+                            <label for="id_nofile">No</label>
+                            <input type="radio" name="hasfile" id="id_nofile" value="No">
+                        </span>
+                    </p>
+                    <p id="addFile">
+                        <label for="id_file">Add File</label>
+                        <input type="file" name="file" id="id_file" placeholder="Upload a supporting file">
+                    </p>
+                    <p>
+                        <label for="id_mailinglist">Sign up for our mailing list?</label>
+                        <input type="checkbox" name="mailinglist" id="id_mailinglist" value="Yes Please!">
+                    </p>
+                    <input id="submitbutton" type="submit" value="Submit Message">
+                </form>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
 
         <footer>
             <p>© Ecoblog 2020</p>

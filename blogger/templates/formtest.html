@@ -1,0 +1,95 @@
+
+<form action="/f" method="get">
+    <h3>Test Form</h3>
+    <p>
+        <label for="id_formmessage">Message:</label>
+        <p>{{ method }}</p>
+        <p>{{ message }}</p>
+        <textarea name="formmessage" id="id_formmessage" placeholder="Area 51 Inquiry" required></textarea>
+    </p>
+    <p>
+        <label for="id_pizzatopping">Favorite Topping:</label>
+        <textarea name="pizzatopping" id="id_pizzatopping" placeholder="pepperoni" required></textarea>
+    </p>
+    <input id="submitbutton" type="submit" value="Submit Message">
+</form>
+
+<form action="/contact" method="get">
+    <h3>Form to Contact</h3>
+    <p>
+        <label for="id_drink">Coke or Pepsi:</label>
+        <textarea name="drink" id="id_drink" placeholder="sprite" required></textarea>
+    </p>
+    <input id="submitdrinkbutton" type="submit" value="send drink">
+</form>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecoblog Forms</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style-contact.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7d54d2caeb.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body id="page top">
+        <nav>
+            <span id="confetti">🎉</span>
+            <a href="{% url 'formtest' %}" id="navformtest"><i class="fas fa-question"></i></a>
+            <a href="/admin" id="navadmin" target="_blank"><i class="fas fa-user"></i></a>
+            <a href="{% url 'home' %}" id="navhome"><i class="fas fa-home"></i></a>
+        </nav>
+        
+        <header>
+            <img id="herobanner" src="https://images.unsplash.com/photo-1584858754606-fe8ef1afd14e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="headerImg">
+            <span id="pageTitle">
+                <h1>Form Processing</h1>
+                <p>GET and POST requests!</p>
+            </span>
+        </header>
+
+        <div id="pagecontents">
+            <div id="bodycontent">
+                <form action="/f" method="post">
+                    <h3>Test Form</h3>
+                    <p>
+                        <label for="id_formmessage">Message:</label>
+                        <p>{{ method }}</p>
+                        <p>{{ message }}</p>
+                        <textarea name="formmessage" id="id_formmessage" placeholder="Area 51 Inquiry" required></textarea>
+                    </p>
+                    <p>
+                        <label for="id_pizzatopping">Favorite Topping:</label>
+                        <textarea name="pizzatopping" id="id_pizzatopping" placeholder="pepperoni" required></textarea>
+                    </p>
+                    <input id="submitbutton" type="submit" value="Submit Message">
+                </form>
+                
+                <form action="/contact" method="post">
+                    <h3>Form to Contact</h3>
+                    <p>
+                        <label for="id_drink">Coke or Pepsi:</label>
+                        <textarea name="drink" id="id_drink" placeholder="sprite" required></textarea>
+                    </p>
+                    <input id="submitdrinkbutton" type="submit" value="send drink">
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Ecoblog 2020</p>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static './confetti.js' %}"></script>
+        <script src="{% static './script.js' %}"></script>
+    </body>
+</html> -->

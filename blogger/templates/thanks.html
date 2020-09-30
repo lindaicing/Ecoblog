@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecoblog Contact</title>
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style-contact.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7d54d2caeb.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body id="page top">
+        <nav>
+            <span id="confetti">🎉</span>
+            <a href="#top" id="navcontact"><i class="fas fa-question"></i></a>
+            <a href="/admin" id="navadmin" target="_blank"><i class="fas fa-user"></i></a>
+            <a href="{% url 'home' %}" id="navhome"><i class="fas fa-home"></i></a>
+        </nav>
+        
+        <header>
+            <img id="herobanner" src="https://images.unsplash.com/photo-1575908524891-b0bdd2b99f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80" alt="headerImg">
+            <span id="pageTitle">
+                <h1>Thank You!</h1>
+                <p>Thank you for submitting your message!</p>
+            </span>
+        </header>
+
+        <div id="pagecontents">
+            <div id="bodycontent">
+                <h3>We've received your message.</h3>
+                <p>Please <a href="{% url 'home' %}">click here</a> to return to the home page. Alternatively, check below for some featured articles!</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Ecoblog 2020</p>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{% static './confetti.js' %}"></script>
+        <script src="{% static './script.js' %}"></script>
+    </body>
+</html>

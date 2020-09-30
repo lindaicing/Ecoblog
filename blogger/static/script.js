@@ -22,4 +22,9 @@ $( document ).ready(function() {
             $("#sidebar, #beforeComments").addClass("hiddenSidebar");
         }
     }
+
+    // Forms --------------------------------------------------------------------------------------
+
+    $('#id_yesfile').click(function() { $("#addFile").addClass("fileAdded"); });
+    $('#id_nofile').click(function() { $("#addFile").removeClass("fileAdded"); });
 });

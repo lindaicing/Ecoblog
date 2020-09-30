@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     payload = Post.objects.all().order_by("-pub_date_time")
@@ -10,6 +11,7 @@ def article(request, year, month, day, slug):
         "article":Post.objects.get(slug = slug),
     })
 
-def contact(request):
+@csrf_exempt
+def thanks(request):
     payload = [Post.objects.all().order_by("-pub_date_time")]
-    return render(request, template_name="contact.html", context={"contact":payload})
+    return render(request, template_name="thanks.html", context={"contact":payload})
