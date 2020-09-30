@@ -5,6 +5,10 @@
     flex-direction: row;
 }
 
+#bodycontent {
+    width: 100%;
+}
+
 #beforeComments {
     margin-right: 30px;
 }
@@ -111,7 +115,6 @@
     right: 20px;
     bottom: 20px;
 }
-
 
 /* Comments ***********************************************/
 

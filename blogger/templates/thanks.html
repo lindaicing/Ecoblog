@@ -8,12 +8,13 @@
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
         <link rel="stylesheet" type="text/css" href="{% static './reset.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static './style-articles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static './style-contact.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7d54d2caeb.js" crossorigin="anonymous"></script>
     </head>
 
-    <body id="page top">
+    <body id="thanks page top">
         <nav>
             <span id="confetti">🎉</span>
             <a href="#top" id="navcontact"><i class="fas fa-question"></i></a>
@@ -32,8 +33,10 @@
         <div id="pagecontents">
             <div id="bodycontent">
                 <h3>We've received your message.</h3>
-                <p>Please <a href="{% url 'home' %}">click here</a> to return to the home page. Alternatively, check below for some featured articles!</p>
+                <p>Please <a href="{% url 'home' %}">click here</a> to return to the home page.</p>
+                <p>Alternatively, check to the right for some featured articles!</p>
             </div>
+            {% include "./aside.html" %} 
         </div>
 
         <footer>
