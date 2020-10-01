@@ -1,0 +1,55 @@
+
+<form action="/pizza" method="post"> <!-- form action is where the form processing happens, actual redirect is in views.py -->
+    <h1>Order a Slice</h1>
+
+    <div>
+        <label for="id_pizza_name">Pizza Name:</label>
+        <input name="pizza_name" id="id_pizza_name" required>
+
+        <label for="id_crust">Crust Style:</label>
+        <input name="crust" id="id_crust" required>
+
+        <label for="id_sauce">Type of Sauce:</label>
+        <input name="sauce" id="id_sauce" required>
+
+        <label for="id_cheese">Type of Cheese:</label>
+        <input name="cheese" id="id_cheese" required>
+    </div>
+
+    <div style="margin-bottom:60px">
+        <h3>First Topping</h3>
+        <label for="id_topping1">Topping Type</label>
+        <input name="topping1" id="id_topping1" placeholder="Pineapple" required>
+    </div>
+
+    <div style="margin-bottom:60px">
+        <h3>Second Topping</h3>
+        <label for="id_topping2">Topping Type</label>
+        <input name="topping2" id="id_topping2" placeholder="Green Eggs">
+    </div>
+
+    <div>
+        <p>Toasted?</p>
+        <label for="id_toastedYes">yes</label>
+        <input type="radio" name="toasted" id="id_toastedYes" value="True">
+        <label for="id_toastedNo">no</label>
+        <input type="radio" name="toasted" id="id_toastedNo" value="False">
+    </div>
+
+    <input type="submit" value="Submit">
+</form>
+
+
+
+
+<!-- <div style="margin-bottom:60px">
+    <h3>Third Topping</h3>
+    <label for="id_topping3">Topping Type</label>
+    <input name="topping3" id="id_topping3" placeholder="Ham">
+
+    <p>Topping Location</p>
+    <label for="id_left3">left</label>
+    <input type="radio" name="topping3loc" id="id_left3" value="left">
+    <label for="id_right3">right</label>
+    <input type="radio" name="topping3loc" id="id_right3" value="right">
+</div> -->
