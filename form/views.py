@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from .models import Pizza
-from .forms import PizzaForm
+from django.views.decorators.csrf import csrf_exempt #This ignores the token, but if you add the token to the form then you don't need to NOT include the csrf
+from .models import Pizza, Beverage
+from .models import PizzaForm, BeverageForm
 
 # @csrf_exempt
 # def my_view(request):
@@ -10,7 +10,7 @@ from .forms import PizzaForm
 @csrf_exempt
 def formtest(request):
     if request.method == "POST":
-        print("post ",request.POST.get("pizzatopping"))
+        print("post ",form.cleaned_data("pizzatopping"))
         method = request.method
         message = "we used POST"
     if request.method == "GET":
@@ -24,54 +24,68 @@ def formtest(request):
 def contact(request):
     payload = "Yeehaw"
     return render(request, template_name="contact.html", context={"contact":payload})
-    
 
-
-def booker(request):
-    payload = "garden hose"
-    return render(request, template_name="shop.html", context={"payload":payload})
-
-@csrf_exempt
 def pizza(request):
-    form = "yea boi"
     if request.method == "POST":
         form = PizzaForm(request.POST)
         if form.is_valid():
-            #newpizza = Pizza.objects.create(form.cleaned_data)
-            #newpizza.save()
-            #form.save()
-        
+
+            """
             newpizza = Pizza(
-                pizza_name = request.POST.get("pizza_name"),
-                crust = request.POST.get("crust"),
-                sauce = request.POST.get("sauce"),
-                cheese = request.POST.get("cheese"),
-                topping1 = request.POST.get("topping1"),
-                topping2 = request.POST.get("topping2"),
-                toasted = request.POST.get("toasted")
+                pizza_name = form.cleaned_data["pizza_name"],
+                crust = form.cleaned_data["crust"],
+                sauce = form.cleaned_data["sauce"],
+                cheese = form.cleaned_data["cheese"],
+                topping1 = form.cleaned_data["topping1"],
+                topping2 = form.cleaned_data["topping2"],
+                toasted = form.cleaned_data["toasted"]
             )
-            newpizza.save()
-            return redirect("/thanks")  
+            newpizza.save()"""
+            form.save()
+            return redirect(request, "/thanks")  
     if request.method == "GET":
-        form = PizzaForm()
+        form = PizzaForm(
+            initial = {'pizza_name': 'George'}
+        )
     return render(request, template_name="pizza2.html", context={"form":form})
 
-def shop(request):
-    payload = "garden hose"
-    return render(request, template_name="shop.html", context={"payload":payload})
+@csrf_exempt
+def beverage(request):
+    if request.method=="POST":
+        form = BeverageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/thanks")
+    if request.method=="GET":
+        form = BeverageForm()
+    # payload = "garden hose"
+    return render(request, template_name="beverage.html", context={"form":form})
 
+
+
+
+def orders(request):
+    open_orders = Pizza.obects.all()
+    return render(request, template_name="orders.html", context={"open_orders":open_orders})
+
+from django.views.generic import ListView
+
+class OrdersView(ListView):
+    model=Pizza
+    template_name = "orders.html"
+    context_object_name = 'open_orders'
 
 # @csrf_exempt
 # def pizza(request):
 #     payload = "yea boi"
 #     if request.method == "POST":
-#         pizza_name = request.POST.get("pizza_name")
-#         crust = request.POST.get("crust")
-#         sauce = request.POST.get("sauce")
-#         cheese = request.POST.get("cheese")
-#         topping1 = request.POST.get("topping1")
-#         topping2 = request.POST.get("topping2")
-#         toasted = request.POST.get("toasted")
+#         pizza_name = form.cleaned_data("pizza_name")
+#         crust = form.cleaned_data("crust")
+#         sauce = form.cleaned_data("sauce")
+#         cheese = form.cleaned_data("cheese")
+#         topping1 = form.cleaned_data("topping1")
+#         topping2 = form.cleaned_data("topping2")
+#         toasted = form.cleaned_data("toasted")
 #         print(pizza_name, crust, sauce)
 #         newpizza = Pizza(
 #             pizza_name = pizza_name,

@@ -1,7 +1,8 @@
-
-<form action="/pizza" method="post"> <!-- form action is where the form processing happens, actual redirect is in views.py -->
+<!-- form action is where the form processing happens, actual redirect is in views.py -->
+<form action="/pizzas" method="post"> <!-- Standard to include CSRF token in all forms -->
+    {% csrf_token %}
     <h1>Order a Slice</h1>
-
+    
     <div>
         <label for="id_pizza_name">Pizza Name:</label>
         <input name="pizza_name" id="id_pizza_name" required>

@@ -1,0 +1,13 @@
+
+<form action="/beverage" method="post">
+    {% for field in form %}
+        <h2>{{ field.label }}</h2>
+        <p>
+            <span>
+            {{ field }}
+            {{ field.help_text }}
+            </span>
+        </p>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
